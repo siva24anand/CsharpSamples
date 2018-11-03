@@ -33,14 +33,31 @@ namespace CsharpConsole.Topics
             //calback by interface
              MeetingExecution meetingExecution = new MeetingExecution();  
             meetingExecution.PerformMeeting();
+            //Func delegate
+            Func<int, int, int> funcadd = sumforFunc;
+            Console.WriteLine("Func result "+ funcadd(10, 8));
+            Action<int, int> actionadd = sumforAction;
+            actionadd(3, 8);
+        }
+        public int sumforFunc(int x, int y)
+        {
+            return x + y;
+        }
+        public void sumforAction(int x, int y)
+        {
+            Console.WriteLine("Action result " + x + y);
         }
     }
+
+
+
     public interface IMeeting
     {
          void ShowAgenda(string agenda);  
         void EmployeeAttendedMeeting(string employee);  
         void EmployeeLeftMeeting(string employee);  
     }
+
     public class Meeting : IMeeting  
     {  
         public void ShowAgenda(string agenda)  
@@ -58,6 +75,7 @@ namespace CsharpConsole.Topics
             Console.WriteLine("Employee Left Meeting: " + employee);  
         }  
     }  
+
     public class MeetingRoom  
     {  
         private string message;  
@@ -73,6 +91,7 @@ namespace CsharpConsole.Topics
   
         }  
     }
+
     public class MeetingExecution  
     {  
         public void PerformMeeting()  
@@ -82,4 +101,5 @@ namespace CsharpConsole.Topics
             meetingStarted.StartMeeting(meeging);  
         }  
     }  
+
 }
