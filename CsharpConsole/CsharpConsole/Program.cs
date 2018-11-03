@@ -10,8 +10,8 @@ namespace CsharpConsole
     {
         static void Main(string[] args)
         {
-            var message = "At last went to github";
-            Console.WriteLine(message);
+            var run = new Start();
+            run.Initialize();
             Console.ReadLine();
         }
     }
