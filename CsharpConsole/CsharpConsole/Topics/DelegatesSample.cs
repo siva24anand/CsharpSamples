@@ -38,6 +38,8 @@ namespace CsharpConsole.Topics
             Console.WriteLine("Func result "+ funcadd(10, 8));
             Action<int, int> actionadd = sumforAction;
             actionadd(3, 8);
+            Predicate<string> isUpper = isuppercase;
+            Console.WriteLine("Predicate result " + isUpper("asfdFFFss"));
         }
         public int sumforFunc(int x, int y)
         {
@@ -46,6 +48,10 @@ namespace CsharpConsole.Topics
         public void sumforAction(int x, int y)
         {
             Console.WriteLine("Action result " + x + y);
+        }
+        public bool isuppercase(string str)
+        {
+            return str.Equals(str.ToUpper());
         }
     }
 

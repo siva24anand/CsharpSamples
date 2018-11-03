@@ -9,8 +9,9 @@ namespace CsharpConsole
 {
     public class Start
     {
-        bool _delegate = true;
+        bool _delegate = false;
         bool _asynAwait = false;
+        bool _others = true;
         public void Initialize()
         {
             if (_delegate)
@@ -22,6 +23,11 @@ namespace CsharpConsole
             {
                 var asaw = new AsynAwait();
                 asaw.Execute();
+            }
+            if (_others)
+            {
+                var others = new Others();
+                others.Execute();
             }
         }
     }
