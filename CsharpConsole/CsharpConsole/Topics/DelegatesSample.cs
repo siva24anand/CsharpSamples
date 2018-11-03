@@ -30,6 +30,56 @@ namespace CsharpConsole.Topics
             Console.WriteLine(gn2(2));
             Console.WriteLine(GetFunc(gn1));
             Console.WriteLine(GetFunc(gn2));
+            //calback by interface
+             MeetingExecution meetingExecution = new MeetingExecution();  
+            meetingExecution.PerformMeeting();
         }
     }
+    public interface IMeeting
+    {
+         void ShowAgenda(string agenda);  
+        void EmployeeAttendedMeeting(string employee);  
+        void EmployeeLeftMeeting(string employee);  
+    }
+    public class Meeting : IMeeting  
+    {  
+        public void ShowAgenda(string agenda)  
+        {  
+            Console.WriteLine("Agenda Details: " + agenda);  
+        }  
+ 
+        public void EmployeeAttendedMeeting(string employee)  
+        {  
+            Console.WriteLine("Employee Attended Meeting: " + employee);  
+        }  
+  
+        public void EmployeeLeftMeeting(string employee)  
+        {  
+            Console.WriteLine("Employee Left Meeting: " + employee);  
+        }  
+    }  
+    public class MeetingRoom  
+    {  
+        private string message;  
+        public MeetingRoom(string message)  
+        {  
+            this.message = message;  
+        }  
+ 
+        public void StartMeeting(IMeeting meeting)  
+        {  
+            // Its a callback  
+            if (meeting != null) meeting.ShowAgenda(message);  
+  
+        }  
+    }
+    public class MeetingExecution  
+    {  
+        public void PerformMeeting()  
+        {  
+            IMeeting meeging = new Meeting();  
+            MeetingRoom meetingStarted = new MeetingRoom("Code Quality Improvement.");  
+            meetingStarted.StartMeeting(meeging);  
+        }  
+    }  
 }
