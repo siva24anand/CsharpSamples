@@ -18,12 +18,18 @@ namespace CsharpConsole.Topics
         {
             return m * num;
         }
+        public int GetFunc(GetNum gf)
+        {
+            return gf(3);
+        }
         public void Execute()
         {
             GetNum gn1 = new GetNum(AddNum);
             GetNum gn2 = new GetNum(MulNum);
             Console.WriteLine(gn1(2));
             Console.WriteLine(gn2(2));
+            Console.WriteLine(GetFunc(gn1));
+            Console.WriteLine(GetFunc(gn2));
         }
     }
 }
