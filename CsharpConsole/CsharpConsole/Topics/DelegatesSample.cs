@@ -30,6 +30,7 @@ namespace CsharpConsole.Topics
             Console.WriteLine(gn2(2));
             Console.WriteLine(GetFunc(gn1));
             Console.WriteLine(GetFunc(gn2));
+
             //calback by interface
              MeetingExecution meetingExecution = new MeetingExecution();  
             meetingExecution.PerformMeeting();
@@ -67,11 +68,16 @@ namespace CsharpConsole.Topics
 
         public EventProgram()
         {
-            this.myevent += new mydel(this.WelcomeUser);
+            myevent += WelcomeUser;
+            myevent += WelcomeUser1;
         }
         public string WelcomeUser(string username)
         {
             return "Welcome " + username;
+        }
+        public string WelcomeUser1(string username)
+        {
+            return "Welcome1 " + username;
         }
         public string executeevent()
         {
