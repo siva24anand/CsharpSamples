@@ -9,9 +9,9 @@ namespace CsharpConsole
 {
     public class Start
     {
-        bool _delegate = false;
+        bool _delegate = true;
         bool _asynAwait = false;
-        bool _others = true;
+        bool _others = false;
         public void Initialize()
         {
             if (_delegate)

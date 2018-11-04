@@ -40,6 +40,10 @@ namespace CsharpConsole.Topics
             actionadd(3, 8);
             Predicate<string> isUpper = isuppercase;
             Console.WriteLine("Predicate result " + isUpper("asfdFFFss"));
+            //Events
+            var program = new EventProgram();
+            var result = program.executeevent();
+            Console.WriteLine("Event Result " + result);
         }
         public int sumforFunc(int x, int y)
         {
@@ -55,7 +59,25 @@ namespace CsharpConsole.Topics
         }
     }
 
+    public delegate string mydel(string str);
 
+    public class EventProgram
+    {
+        public event mydel myevent;
+
+        public EventProgram()
+        {
+            this.myevent += new mydel(this.WelcomeUser);
+        }
+        public string WelcomeUser(string username)
+        {
+            return "Welcome " + username;
+        }
+        public string executeevent()
+        {
+            return myevent("siva");
+        }
+    }
 
     public interface IMeeting
     {
