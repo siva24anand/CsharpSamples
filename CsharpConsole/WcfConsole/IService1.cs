@@ -9,7 +9,7 @@ using System.Text;
 namespace WcfConsole
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    [ServiceContract]
+    [ServiceContract(Name="asdf")]
     public interface IService1
     {
 
@@ -23,6 +23,29 @@ namespace WcfConsole
         string GetValue();
 
         // TODO: Add your service operations here
+    }
+
+    [ServiceContract]
+    public interface ISecretService
+    {
+        [OperationContract]
+        string GetSecretService();
+    }
+
+    [DataContract]
+    public class Employee
+    {
+        [DataMember]
+        public int StudentId
+        {
+            get {return 1; }
+        }
+        [DataMember]
+        public string StudentName
+        {
+            get { return "Siva"; }
+        }
+
     }
 
 
