@@ -47,6 +47,7 @@
     <Compile Include="Topics\AsynAwait.cs" />
     <Compile Include="Topics\DelegatesSample.cs" />
     <Compile Include="Topics\Others.cs" />
+    <Compile Include="Topics\Timers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

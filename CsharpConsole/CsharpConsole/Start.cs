@@ -11,7 +11,9 @@ namespace CsharpConsole
     {
         bool _delegate = false;
         bool _asynAwait = false;
-        bool _others = true;
+        bool _others = false;
+        bool _timers = true;
+
         public void Initialize()
         {
             if (_delegate)
@@ -28,6 +30,11 @@ namespace CsharpConsole
             {
                 var others = new Others();
                 others.Execute();
+            }
+            if(_timers)
+            {
+                var timers = new Timers();
+                timers.Execute();
             }
         }
     }
